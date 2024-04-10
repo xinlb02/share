@@ -1,0 +1,75 @@
+
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>点击右上角•••在浏览器打开</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://tc.you8.xyz/img/3');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    #mask {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: none;
+      z-index: 9999;
+    }
+
+    #mask .content {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      font-size: 30px; /* 自定义提示字体大小 */
+    }
+  </style>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+  <div id="mask">
+    <div class="content">
+      <h1> 😍客官别急嘛😍 <br><br>为了给您更好的体验 <br><br>请点击右上角 •••<br>在浏览器中打开链接</h1>
+    </div>
+  </div>
+
+  <script>
+    function isWeChatOrQQ() {
+      var userAgent = navigator.userAgent.toLowerCase();
+      return userAgent.indexOf("micromessenger") !== -1 || userAgent.indexOf("qq/") !== -1;
+    }
+
+    function redirectToExternalBrowser() {
+      if (isWeChatOrQQ()) {
+        $("#mask").show();
+      } else {
+        window.location.href = "https://down4.22sw.top/";
+      }
+    }
+
+    $(document).ready(function() {
+      redirectToExternalBrowser();
+    });
+  </script>
+</body>
+</html>
